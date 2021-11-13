@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+%\usepackage[mono=false]{libertine}
+%\usepackage{verbatim}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb}
+\let\circledS\relax % amssymb clashed with mathdesign
+\usepackage[charter,cal=cmcal,mono=false]{mathdesign}
+\usepackage{inconsolata} % for mono font
+\usepackage[b5paper]{geometry}
+%\usepackage[paperwidth=5.5in,paperheight=6in,left=0.2in,right=0.2in,top=0.5in,bottom=0.5in]{geometry}
+%\usepackage[margin=2.9cm]{geometry}
+
+\usepackage[yyyymmdd]{datetime}
+\renewcommand{\dateseparator}{--}
+
+\usepackage{color,braket}
+
+\usepackage{natbib, enumerate}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true,
+            linkcolor=blue,
+            urlcolor=black,
+            citecolor=gray,backref=page]{hyperref}
+
+
+
+\usepackage{graphicx} % add pdf as image
+\usepackage{multicol} % two-columns
+\usepackage{CJKutf8}
+
+
+
+%\usepackage[hyperpageref]{backref}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand*{\dif}{\,\mathrm{d}}
+\renewcommand*{\u}{\underline}
+\newcommand*{\cB}{\mathcal{B}}
+\newcommand*{\cN}{\mathcal{N}}
+\newcommand*{\inv}{^{-1}}
+\newcommand*{\isom}{\cong}
+
+
+\newtheorem{prp}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{qst}{Question}
+\theoremstyle{remark}
+\newtheorem*{asw}{Answer}
+
+
+\begin{document}
+
+\title{A crash course on topology}
+\author{Haoran LEI}  
+\date{\today}
+
+\maketitle
+
+\begin{CJK}{UTF8}{gkai}
+   
+
+\begin{abstract}
+
+  这份讲义草稿起源于我 2021 年春季在湖南大学``挂羊头卖狗肉''讲授的拓扑学课程, 主要受众是理论经济学方向的研究生.
+  行文夹叙夹问, 有时像习题集多过像讲义.  
+
+  这份讲义非常不完善, 并且在可预见的未来我都没有时间去修改它. 
+
+  Very preliminary and I am afraid I will not work on it in the near future.
+   
+\end{abstract}
+
+\end{CJK}
+
+\clearpage
+\input{FA01.tex}
+\clearpage
+\input{FA02.tex}
+
+
+\clearpage
+\input{FA03.tex}
+
+
+\clearpage
+\input{FA04.tex}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

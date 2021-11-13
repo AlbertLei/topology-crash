@@ -1,0 +1,267 @@
+\begin{center}
+  \section{Product topology}
+\end{center}
+
+\setcounter{section}{4}
+
+This lecture is about product topology.
+There are three important ways of creating new topological spaces from old ones:
+forming subspaces, quotient spaces, and product spaces. We focus on product topology today.
+
+\subsection{The product topology: Finite products}
+
+
+Let $(X, \tau)$ be a topological space.
+A collection $\mathcal B$ of open sets of $X$ is said to be a \textit{basis for the topology} $\tau$ if
+every open set is a union of members of $\mathcal B$.
+So $\mathcal B$ generates the topology $\tau$
+in the following sense: if we are told what sets are members of $\mathcal B$, then we can determine the members of
+$\tau$ --- they are just all the sets which are unions of members of $\mathcal B$.
+
+Not any collection $\mathcal B$ can form a basis for a topology.
+
+\begin{qst}\label{qst:basis}
+  Let $X$ be a non-empty set and let $\mathcal B$ be a collection of subsets of $X$.
+  Then $\mathcal B$ is a basis for a topology on $X$ iff (i) $\cup_{B \in \mathcal B} B = X$ and (ii) for all $B_1,B_2 \in \mathcal B$,  $B_1 \cap B_2$ is a member of $\mathcal B$. 
+\end{qst}
+
+We use the notion of topology basis to characterize the product topology.
+
+
+\noindent \textbf{Definition.} 
+Let $(X_1, \tau_1)$, $(X_2, \tau_2)$,..., $(X_n, \tau_n)$ be topological spaces.
+Then the product topology $\tau$ on the set
+$X_1 \times \dots \times X_n$ is the topology having the family $\set{O_1\times \dots \times O_n \colon O_i \in \tau_i}$ as a basis.
+
+\begin{qst}
+  Show that the family defined in the above definition constitutes a basis. [Hint: use the result of Question \ref{qst:basis}.]
+\end{qst}
+
+An obvious (but incorrect!) candidate for $\tau$
+is the set of all sets $O_1 \times ... \times O_n$
+where $O_i \in \tau_i$. Unfortunately this is not a topology.
+
+\begin{qst}
+  Illustrate that the set of all sets $O_1 \times ... \times O_n$ where $O_i \in \tau_i$ may not be a topology.
+\end{qst}
+\begin{asw}
+  Consider $n=2$ and $X_1 = X_2 = \mathbb R$. The topology defined above does not include the union of
+  $(0,1) \times (0,1)$ and $(2,3) \times (2,3)$,
+  since this is not $O_1 \times O_2$ for any
+  choice of $O_1$ and $O_2$.
+\end{asw}
+
+\subsubsection{Projections onto factors of a product}
+
+
+Recall that given two topologies $\tau_1$ and $\tau_2$ on a set $E$,
+$\tau_1$ is said to be \textit{finer} than
+$\tau_2$ if $\tau_1 \supseteq  \tau_2$.
+For example,
+the usual topology on $\mathbb R$ is finer than the
+cofinite topology on $\mathbb R$.
+
+Let $(X, \tau_1)$ and $(Y, \tau_2)$ be two topological spaces
+and $f$ a mapping from $X$ to $Y$.
+Then $f$ is called an open (or rep.\ closed) mapping if for every open (or rep.\ closed) set 
+$U$ in $X$, $f(U)$ is open (or rep.\ closed) in $Y$.
+
+\begin{qst}
+  Show that $f \colon X \to Y$ being $x \in $ \{open, closed, continuous\} does not imply that it is $y \in$ \{open/closed/closed\} $\setminus \set{x}$.
+\end{qst}
+
+
+Product topology is a nice construction.
+Indeed, it is the coarsest topology such that each projection is continuous.
+
+
+\begin{qst}
+Let $(X_1, \tau_1)$, ..., $(X_n, \tau_n)$ be topological spaces and $(X_1 \times \dots \times X_n, \tau)$ their topological space.
+For each $i \in \set{1,\dots,n}$, let
+$$
+p_i \colon X_1 \times \dots \times X_n \to X_i
+$$
+be the projection mapping; that is,
+$p_i( \langle x_1, ..., x_n \rangle  ) = x_i$. Show that
+\begin{enumerate}[(a)]
+  \item each $p_i$ is a continuous surjective open mapping, and
+  \item  $\tau$ is the coarsest topology on the set $X_1 \times \dots \times X_n$ such that each $p_i$ is continuous.
+\end{enumerate}
+\end{qst}
+
+Given topological spaces $X_1, ..., X_n$, 
+the product topology can be defined as the
+coarsest topology on $X$ such that each projection is continuous.
+This observation is of greater significance in the
+discussion of products of an infinite number of topological spaces.
+
+\subsubsection{Tychonoff's theorem}
+
+Tychonoff’s Theorem states that if each $(X_i,\tau_i)$ is compact, then $(X, \tau)$ is compact.
+Proving Tychonoff’s Theorem for a general product topology is hard.
+
+
+
+\begin{qst}
+  Prove the Tychonoff’s Theorem for the product of finite topological spaces. Does the inverse also hold?
+\end{qst}
+
+An application of Tychonoff’s Theorem is the 
+Heine-Borel Theorem in $\mathbb R^n$. 
+A set in $\mathbb R^n$ is compact iff
+its projection at each dimension is bounded and closed; that is, the set itself is
+bounded and closed.  
+
+
+\subsubsection{Remarks}
+
+The easiest case of product topology is that of finite products. 
+Next we study countably infinite products and then the general case.
+The most important result is Tychonoff's theorem.
+
+For those who know some category theory, we observe that the category of
+topological spaces and continuous mappings has both products and coproducts.
+The products in the category are indeed the products of the topological spaces.
+You may care to identify the coproducts.
+
+
+%% This is a bonus section about proving the fundamental theorem of algebra using topology. 
+
+
+\subsection{The product topology: countably infinite case}
+
+Intuitively, a curve shall have zero area.
+One will be amazing to know the existence of space-filling curves.
+We attack the topic of space-filling curves using a
+curious space known as Cantor space. 
+As an added bonus, you will also have a better understanding of the unit interval $[0,1]$.
+
+From a broader perspective,
+in this section we extend our study to countably infinite products
+of topological spaces.
+In this bigger picture space-filling curves is nothing but one example.
+
+\subsubsection{The product topology}
+
+Let $(X_1, \tau_1), \dots, (X_n, \tau_n), ...$ be a sequence of topological spaces.
+The product topology of $\prod X_i$ has the following family as its basis:
+$$
+\set{ \prod O_i \colon O_i \in \tau_i \text{ for all $i \in \mathbb N$ and $O_i = X_i$ for all but a finite number of }i}.
+$$
+
+So a basic open set is of the form: 
+$$O_1 \times \dots \times O_n \times X_{n+1} \times X_{n+2} \times \dots .$$
+
+It should be noted that a product of open sets in $X_i$ need not be open in $\prod X_i$. 
+For example,  let $X_i = \mathbb R$ and then $(0,1)^\infty :=\prod (0,1)$ is not open in $\mathbb R ^\infty$.
+
+Why, you may (and you should) ask, do we define the product topology in this way?
+The answer is that only in this way can we guarantee that the product of compact sets is still compact (Tychonoff's Theorem).
+
+For example, consider the box topology $\tau'$ on $\prod X_i$ that has 
+$$\set{\prod_{i=1}^\infty  O_i \colon O_i \in \tau_i \text{ for all }i \in \mathbb N} $$
+as its basis.
+If each $X_i$ is a finite set with discrete topology, 
+then $(\prod X_i, \tau')$ is an infinite discrete space. Moreover, each $X_i$ is compact in $(X_i, \tau_i)$ but
+$\prod X_i$ is not compact in $(\prod X_i, \tau')$. 
+ 
+
+There is another justification, which says the product topology is the coarsest
+topology on $\prod X_i$ such that each projection mapping
+$p_i \colon X \to X_i$ is continuous. 
+The proof is left as an exercise.
+
+
+
+
+\begin{qst}
+Let $(X_1, \tau_1), \dots,..., (X_n, \tau_n), \dots$ be a sequence of topological spaces and $(X, \tau)$ be their product space. For each $i$, let $p_i \colon \prod_{j=1}^\infty X_j \to X_i$ be the projection mapping:
+$$
+p_i (x_1,...x_n,...) = x_i.
+$$
+Show that
+\begin{enumerate}[(a)]
+  \item each $p_i$ is a continuous, onto and open mapping;
+  \item the product topology $\tau$ is the coarsest topology such that each $p_i$ is continuous.
+\end{enumerate}
+\end{qst}
+
+
+
+\subsubsection{The Cantor space and the Hilbert cube}
+The Cantor set $G \subseteq \mathbb R$ is closed, uncountable and of measure zero. 
+Arm it with the subspace topology,
+we obtain the Cantor space $(G,\tau)$.
+We are to show that it is homeomorphic (Tóng Pēi) to a countably infinite product of two-point spaces.
+
+
+For each $i$, let $(A_i, \tau_i)$ be the set $\set{0,2}$ with the discrete topology. Let $A := \prod A_i$ and
+consider the product topology $(A,\tau')$.
+Then the map 
+\begin{align*}
+  f \colon &(G,\tau) \to (A, \tau') \\
+           &\sum_{n=1}^\infty \frac{a_n}{3^n} \mapsto (a_1,...a_n,...)
+\end{align*}
+is a homeomorphism.
+Here $\sum_{n=1}^\infty \frac{a_n}{3^n}$ is the ternary representation of a number from the Cantor set.
+
+
+\begin{qst}
+  Show that $f$ is indeed a homeomorphism. That is, it is bijective and continuous.
+\end{qst}
+
+\begin{asw}
+The properties of Cantor set $G$ imply that $f$ is bijective. As $(G, \tau)$ is compact and $(A, \tau')$ is Hausdorff, $f$ is a homeomorphism if it is continuous.
+It's sufficient to show that for any \textit{basic} open set
+$U = U_1 \times \dots \times U_N \times A_{N+1} \times A_{N+2} \times \dots$ and any
+$a = (a_1,a_2,...) \in U$, 
+
+Consider the open interval
+$(\sum_{n=1}^\infty \frac{a_n}{3^n} - \frac{1}{3^{N+2}},  
+\sum_{n=1}^\infty \frac{a_n}{3^n} + \frac{1}{3^{N+2}} )$
+and let $W$ be the intersection of this open interval with $G$. We have $f(W) \subset U$. \qed
+\end{asw}
+
+We showed that the Cantor space is topologically the same with the product space $\set{0,2}^\infty$.
+We also suggested that any product of compact spaces is still compact.
+From the question above, 
+we can show that the product of a countable number of homeomorphic copies of the Cantor Space is homeomorphic to the Cantor Space, and hence is compact.
+
+\begin{prp}
+  Let $(G_i, \tau_i)$ be a sequence of topological spaces
+  each of which is homeomorphic to the Cantor space $(G,\tau)$. Then
+  $$
+  (G,\tau) \isom \prod_{i=1}^\infty (G_i, \tau_i) \prod_{i=1}^n (G_i, \tau_i)
+  $$
+\end{prp}
+
+
+
+
+
+\newpage
+
+\subsection{The product topology: uncountably infinite case}
+
+
+Let $I$ be a index set and consider 
+$ \set{(E_i, \tau_i) : i \in I}$.
+The product space, denoted by $\prod_{i \in I} (X_i, \tau_i)$ consists of the product set and the topology $\tau$ having as its basis the family
+$$
+\mathcal B = \set{ \prod_{i \in I} O_i: O_i \in \tau_i \text{ and } O_i = X_i \text{ for all but a finite number of } i}.
+$$
+The topology $\tau$ is called the product topology (or the Tychonoff topology).
+
+
+\paragraph{Remark.} Although we have defined the product topology
+rather differently to the way we did when $I$ was 
+infinite or finite,
+you should be able to convince
+yourself that when $I$ is finite the new definition is equivalent to
+our previous ones.
+
+
+We claim that the Tychonoff theorem still holds but withdraws the proof here.
+Interested readers may check a free online book
+\textit{Topology Without Tears} by Sidney Morris.
+

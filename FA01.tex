@@ -1,0 +1,102 @@
+\begin{center}
+  \section{Introduction to topological space}
+\end{center}
+
+\setcounter{section}{1}
+\subsection{Topological spaces}
+
+Topologies are about open sets.
+We review some basic properties of a topological space and its connections to a metric space.
+
+\begin{qst}
+  Let $(E,d)$ be a metric space. Denote by $\tau$ the collection of subsets of $E$:
+  $$
+  \tau := \set{A \subseteq E | \forall x\in A, \, \exists r >0 \text{ such that } B(x,r) \subseteq A}. 
+  $$
+Show that $\tau$ is a topology on set $E$. 
+Moreover, we call $\tau$ the {\em topology induced by metric $d$.}  
+\end{qst}
+
+\begin{qst}
+  Let $(E, \tau)$ be a topological space. 
+  Given a subset $F$ of $E$, define $\tau_F := \set{U \cap F | U \in \tau}$. Verify that $\tau_F$ is indeed a topology on $F$.
+  Moreover, we call $(F, \tau_F)$ a {\em topological subspace} of $(E, \tau)$. 
+\end{qst}
+
+\begin{qst}
+  Let $(E,d)$ be a metric space. For a subset $F \subseteq E$, let $d|_F$  be the restriction of metric $d$ on set $F$.
+  Denote by $\tau$ and $\tau_F$ the topologies induced by $d$ and $d|_F$ respectively.
+  Show that $(F, \tau_F)$ is a topological subspace of $(E, \tau)$.
+\end{qst}
+
+\begin{qst}
+  Let $E$ be a topological space and let $F$ be a topological subspace of $E$. Suppose that $A \subseteq F$ is closed (or respectively, open) in $F$.
+  Illustrate that $A$ may not be closed (or respectively, open) in $E$. [Recall that by definition, if $A \subseteq F$ is open in $E$ then it must be open in $F$.]
+\end{qst}
+
+
+\subsection{Neighborhoods and neighborhood bases}
+
+A neighborhood of $x \in E$ is any set in the topological space that is bigger than some open set $U$ containing $x$.
+The collection of all neighborhoods of $x$ is denoted by $\mathcal N(x)$, also formally known as the neighborhood system for $x$.
+
+A neighborhood need not be open.
+Those neighborhoods that also happen to be open (or respectively closed) are known as open (or respectively closed) neighborhoods.
+
+The collection of all neighborhoods having a certain "nice" property forms a neighborhood basis,
+while these neighborhoods are not necessarily open.
+Equivalently, we can define a topology via one of the neighborhood bases.
+
+\begin{qst}
+  Given a topological space $E$ and a point $x \in E$, a family of neighborhoods $\mathcal B(x) \subseteq \mathcal N(x)$ is called a {\em neighborhood basis} for $x$ if for each $U \in \mathcal N$, there exists $V \in \mathcal B(x)$ such that $V$ is a subset of $U$.
+  \begin{enumerate}[(a)]
+    \item Show that the set of all open neighborhoods of $x$ constitute a  neighborhood basis for $x$.
+    \item Illustrate that the set of all closed neighborhoods of $x$ may not be a neighborhood basis for $x$.    
+  \end{enumerate}
+\end{qst}
+
+\begin{qst}
+  Show that $U$ is open if and only if $\forall\, x \in U$, $U \in \mathcal N(x)$; that is, $U$ is a neighborhood for all its members. [Hint: consider a neighborhood basis of $x$.]
+\end{qst}
+
+The topology on $E$ is determined uniquely by all the neighborhood bases on $E$. Alternatively, we can give an axiomatic description of a topology by specifying the neighborhood bases rather than the open sets.    
+\medskip
+
+\noindent {\bf Theorem.} Denote by $E$ be an non-empty set.
+For any $x \in E$, denote by $\mathcal B(x)$ a collection of subsets of $E$ that contain $x$. Moreover,
+\begin{enumerate}[(B1)]
+  \item For any $V \in \mathcal B(x)$, $x \in V$.
+  \item For any $(U,V) \in \cB \times \cB$, there exists $W \in \cB (x)$ such that $W \subseteq U \cap V$.
+  \item For any $V \in \cB (x)$, these exists $U \subseteq V$ such that (i) $x \in U$ and (ii)  $\forall \, y \in U$, $\exists\, W \in \cB(y)$ such that $W \subseteq U$. 
+\end{enumerate}  
+Then there exists a unique topology $\tau$ such that for each $x \in E$, $\cB(x)$ is a neighborhood basis for $x$.
+
+\begin{qst}
+  Prove the theorem above.\footnote{This problem is hard, but hugely beneficial. You will have a great understanding of neighborhood bases by working on it.
+  So before reading the solution, try solving it by yourself. It's also of help to stay puzzled for days with a great theorem like this.}
+\end{qst}
+
+
+\subsection{Hausdorff space}
+A topological space $E$ is called a {\em Hausdorff space} (or separable space) if for all $(x,y) \in E \times E$ with $x \neq y$, there exist a neighborhood of $x$, denoted by $U$, and a neighborhood of $y$, denoted by $V$, such that $U \cap V = \emptyset$.
+Hausdorff spaces are widely used in analysis because a sequence $(x_n)$ in a Hausdorff space cannot have more than one limit. 
+You will learn what is a limit in a topological space and how to prove that claim in the next class.    
+
+\begin{qst}
+  For $x \in E$, denote by  $\mathcal{CN}(x)$ the collection of closed neighborhoods of $x$.
+  \begin{enumerate}[(a)]
+    \item  
+    Given a topological space $E$, show that $E$ is a Hausdorff space iff 
+    $$
+    \bigcap_{A \,\in\, \mathcal{CN}(x)} A = \set{x};
+    $$
+    that is, the intersection of all the closed neighborhoods of $x$ yields the singleton $\set{x}$. 
+    \item A corollary of (a) is that if $E$ is a Hausdorff space, then
+    $$
+    \bigcap_{A \,\in\, \mathcal{N}(x)} A = \set{x}.
+    $$ 
+    Illustrate that the converse may not hold. [Hint: Some imagination beyond the usual topology on $\mathbb R$ may be needed.]
+  \end{enumerate}
+
+\end{qst}
+

@@ -1,0 +1,174 @@
+\begin{center}
+  \section{Compact spaces, Hausdorff spaces, and Locally compact Hausdorff spaces}
+\end{center}
+
+\subsection{Compact spaces}
+
+Compactness is an amazing analytical notion expressed in 
+topologian.
+A topological space 
+is compact if all sequences (or more generally, nets) inside it converge as much as possible.
+Compactness is a topological notion that was developed to abstract the key property of a subspace of a Euclidean space being closed and bounded: every net must accumulate somewhere in the subspace.
+Roughly, the reason is that boundedness implies that
+the net cannot escape the subspace, and the point to which it accumulates lies in the subspace by closure. 
+This is the statement of the Heine-Borel theorem as you may have seen in calculus.
+
+
+
+Compactness provides an \textit{intrinsic} way of formulating this bounded-and-closed property in the context of general topological spaces, without the need to view them as subspaces of an ambient space.
+Still, it is common to work with compact subsets of a given space. These are those subsets which are compact spaces with the subspace topology 
+(see Question \ref{qst:subspace}).
+
+
+There are many ways to say that a space $E$ is compact.
+The first is perhaps the most common.
+
+\subsubsection{Open covers}
+
+Denote by $E$ a topological space. We say $E$ is \textit{compact} if for any open cover $\set{O_i}_{i \in I}$ with
+$\cup_{i \in I} O_i = E$, there exists a finite subcover
+$\set{O_j}_{j \in J}$ such that 
+$\cup_{j \in J} O_j = E$.
+Put in plain English,
+a topological space is compact if every open cover has a finite subcover.
+
+
+
+
+An equivalent definition is that for any family of closed sets $\set{F_i}_{i \in I}$ with $\cap_{i \in I} F_i = \emptyset$, there exists $\{F_j\}_{j \in J}$ such that
+$\cap_{j \in J} F_j = \emptyset$.
+Taking the contrapositive,
+if  
+\begin{equation}
+\cap_{j \in J} F_j \neq \emptyset \text{ for any finite }
+\{F_j\}_{j \in J},  
+\end{equation}
+then the intersection of the set family  
+cannot be empty:
+$\cap_{i \in I} F_i \neq \emptyset$.
+
+Display (1) is called the \textit{finite intersection property.}
+One corollary  of the equivalent definition --- the nested intervals theorem --- is used often in calculus.
+
+\begin{qst}
+   Let $E$ be a topological space. Show that if $(F_n)_{n \ge 1}$ is a sequence of nonempty closed sets with $F_n \subseteq F_{n-1}$,
+   then $$ \cap_{n \ge 1} F_n \neq \emptyset. $$
+\end{qst}  
+
+
+Usually we wish to determine whether $F \subseteq E$ is 
+compact or not, and
+we can still use the open covers in $E$ to detect whether 
+$F$ is compact or not.
+
+\medskip
+\noindent \textbf{Theorem.} Denote by $E$ a topological space and $F\subseteq E$ a subspace.
+Then $F$ is compact if and only if
+for any open covers of $F$ in $E$, there is a finite subcover.
+
+
+
+\begin{qst}\label{qst:subspace}
+  Formulate the plain English in the theorem above and
+  prove it.
+\end{qst}
+
+\subsubsection{Other definitions}
+
+
+In another direction, the definition of a compact topological space also works for locales.
+We can also define
+compactness via ultrafilter convergence.
+Moreover, A uniform space 
+$E$ s compact if and only if it is complete and totally bounded. 
+Finally, 
+category theorists live in their own world and formulate
+compactness using stability properties.
+We refer interested readers to nLab:
+\url{https://ncatlab.org/nlab/show/compact+space}.
+
+\subsection{Compactum}
+
+
+Hausdorff spaces (aka ``compacta'') are nice animals.
+In a compact Hausdorff space (aka ``compactum''),
+every limit of a sequence or more generally of a net that should exist does exist (as it is compact) and does so uniquely (as it is Hausdorff).
+Mathematicians love Hausdorff spaces so much that a special name ---compacta/a compactum --- is given to them.\footnote{Indeed, some authors even use ``compact'' to mean ``compact and Hausdorff,''
+and use the word ``quasicompact'' to refer to just ``compact'' as we are using it here. 
+This custom seems to be prevalent among algebraic geometers, and particularly so within French mathematicians or guys who speak French.}
+
+\begin{qst}\label{qst:compact-closed}
+  Denote by $E$ a Hausdorff space and $F \subseteq E$ a  subspce of $E$.
+  \begin{enumerate}[(a)]
+    \item Show that $F$ is a Hausdorff space.
+    \item Show that $F$ is compact $\implies$ $F$ is closed. [Hint one: You need to show $F^c$ is open. Hint two: Show that for each $x$ in $F^c$ there is an open ball in it containing $x$. Note that $F$ is a compactum now!]
+    \item Assume furthermore that $E$ is compact. Show that    $F$ is compact $\iff$ $F$ is closed. [Hint: Use the finite intersection property.]
+  \end{enumerate}
+\end{qst}
+
+%
+%\begin{asw}
+%  (a) Let $x,y \in F$ and $x \neq y$. 
+%      Since $E$ is Hausdorff, there exist two disjoint open sets $U, V \subseteq E$ such that $x \in U$ and $y \in V$.
+%      Hence $U \cap F$ and $V \cap F$ are open in $F$ and contain $x$ and $y$ respectively.
+%
+%  (b)   
+%\end{asw}
+
+In $\mathbb R^n$, a set is compact iff it is closed and bounded.
+We are interested in the relationship between being compact and closed
+(since boundedness is not defined in a topological space).
+Question \ref{qst:compact-closed} implies that if a topological space $F$ inhabits a larger Hausdorff space $E$,
+then compactness implies closedness.
+Moreover, if it inhabits a compactum (i.e.\ being both compact and Hausdorff),
+then compactness is the same as closedness.
+
+In general, neither compactness nor closedness implies the other.
+See the question below for examples.
+
+\begin{qst}
+   Verify the following examples.
+   \begin{enumerate}[(a)]
+     \item In a topological space with finitely many open sets, each set is compact. For example, the indiscrete/trivial topology.
+     \item Endow $R$ with the co-finite topology, in which
+        a set is open if and only if its complement is finite. Clearly $N$ is neither open nor closed. 
+        Show that $N$ is compact. Indeed, \textit{every} subset is compact in this topology.
+     \item Consider \textit{the line with two origins:}
+        $E = [-1,0) \cup \set{a,b} \cup (0,1]$. The set 
+        $[-1,0) \cup \set{a} \cup (0,1]$ is compact but not closed. Its closure includes point $b$.
+   \end{enumerate}
+\end{qst}
+
+\subsection{Locally compact Hausdorff space}
+
+Analysts usually work in Hausdorff space, but not so often in compact space (e.g., $\mathbb R$ is non-compact).
+Assuming we only talk about stuff in Hausdorff space,
+local compactness is
+a useful but weaker notion than compactness.
+For example, given a compact Hausdorff space $E$,
+its subspace $F$ may not be compact but it must be locally compact.
+
+
+A Hausdorff space $E$ is \textit{locally compact} if every point has a compact neighborhood.
+If $E$ is non-Hausdorff, then being locally compact requires each point to have a compact neighborhood basis ---
+a neighborhood basis consisting of compact neighborhoods --- which is a stronger condition.
+The second definition of local compactness is not used much as we pay little attention to non-Hausdorff space.
+
+\begin{qst}
+  Let $E$ be a Hausdorff space. If $E$ is locally compact, then for each $x \in E$ there exists a neighborhood basis consisting of compact neighborhoods for $x$.
+\end{qst}
+
+%\begin{asw}
+%  Let 
+%\end{asw}
+
+
+In mathematical analysis locally compact spaces that are Hausdorff are of particular interest, which are abbreviated as LCH spaces.
+Examples of locally compact Hausdorff spaces that are not compact include:
+\begin{itemize}
+  \item The Euclidean spaces $\mathbb R^n$, which are are locally compact as a consequence of the Heine--Borel theorem.
+  \item All discrete spaces are locally compact and Hausdorff. These are compact only if they are finite.
+  \item All open or closed subsets of a locally compact Hausdorff space are locally compact in the subspace topology. This provides several examples of locally compact subsets of Euclidean spaces, such as the open unit ball.
+
+ 
+\end{itemize}
